@@ -2,6 +2,10 @@
 
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
+const Url = require("url-parse");
+const { host, username, password, pathname } = new Url(
+  Env.get("CLEARDB_DATABASE_URL")
+);
 
 /** @type {import('@adonisjs/ignitor/src/Helpers')} */
 const Helpers = use('Helpers')
