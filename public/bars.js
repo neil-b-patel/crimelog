@@ -1,18 +1,11 @@
 document.addEventListener("DOMContentLoaded", barChart);
-//import {requirejs}
-//const fs = require("fs-extra");
-
-//fs.readFile("/crime.json", 'utf8', (err, data) => {
-// if (err) throw err;
-//  console.log(data);
-//});
 
 function barChart() {
-  let margin = { top: 40    , right: 20, bottom: 160, left: 40 },
+  let margin = { top: 40, right: 20, bottom: 160, left: 40 },
     width = 900 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
-  let x = d3.scale.ordinal().rangeRoundBands([0, width], 0.05);
+  let x = d3.scale.ordinal().rangeRoundBands([0, width], 0.20);
   let y = d3.scale.linear().range([height, 0]);
 
   let xAxis = d3.svg
