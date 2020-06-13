@@ -9,8 +9,19 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 1000;
   color: white;
+
   background-image: url("/blue_bricks.jpg");
-  background-size: auto;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+}
+
+@media only screen and (max-width: 639) {
+  body {
+    background-image: url("/blue_bricks_mobile.jpg");
+  }
 }
 
 * {
