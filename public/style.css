@@ -9,7 +9,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   font-weight: 300;
   background-image: url("/blue_bricks.jpg");
-  background-size: cover;
+  background-size: auto;
 }
 
 * {
