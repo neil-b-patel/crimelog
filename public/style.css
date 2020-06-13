@@ -7,7 +7,8 @@ html, body {
 
 body {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 1000;
+  color: white;
   background-image: url("/blue_bricks.jpg");
   background-size: auto;
 }
