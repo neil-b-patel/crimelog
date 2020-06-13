@@ -30,7 +30,7 @@
             var result = e.options[e.selectedIndex].value;
 
             var script = "{{ script(" + result + ") }}";
-            document.getElementByID("wrapper").innerHTML = script;
+            document.getElementById("wrapper").innerHTML = script;
         }
     </script>
 
