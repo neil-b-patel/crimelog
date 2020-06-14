@@ -8,12 +8,13 @@
     {{ script('https://d3js.org/d3.v3.min.js') }}
     {{--  {{ script('bars') }}  --}}
     {{--  {{ script('bubbles') }}  --}}
+    <script src="bubble.js"></script>
     {{ style('style') }}
 </head>
 
 <body>
-    <h1>Select a chart type using the dropdown list.</h1>
-    <h1>This will visualize the type and frequency of the last sixty crimes on Davidson College's campus.</h1>
+    <h2>Select a chart type using the dropdown list.</h2>
+    <h3>This will visualize the type and frequency of the last sixty crimes on Davidson College's campus.</h3>
 
     <label for="charts">Choose a chart type:</label>
 
@@ -22,15 +23,13 @@
     <option value="bubbles">Bubbles</option>
     </select>
 
-    <script id="w  rapper"></script>
-
     <script>
         function GetSelectedValue() {
             let e = document.getElementById("charts");
             let result = e.options[e.selectedIndex].value;
             
             let script = document.createElement("script");
-            script.setAttribute("src", "../public/" + result + ".js");
+            script.setAttribute("src", "/" + result + ".js");
             document.body.appendChild(script);
         }
     </script>
