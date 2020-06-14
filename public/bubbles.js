@@ -1,4 +1,5 @@
-document.addEventListener("load", bubbleChart);
+// document.addEventListener("load", bubbleChart);
+bubbleChart();
 
 function bubbleChart() {
   let height = 1000;
