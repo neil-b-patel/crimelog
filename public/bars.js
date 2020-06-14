@@ -1,5 +1,4 @@
-// document.addEventListener("load", barChart);
-barChart();
+document.addEventListener("DOMContentLoaded", barChart);
 
 function barChart() {
   let margin = { top: 40, right: 20, bottom: 160, left: 40 },
