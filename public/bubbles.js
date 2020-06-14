@@ -1,11 +1,4 @@
-document.addEventListener("DOMContentLoaded", bubbleChart);
-//import {requirejs}
-//const fs = require("fs-extra");
-
-//fs.readFile("/crime.json", 'utf8', (err, data) => {
-// if (err) throw err;
-//  console.log(data);
-//});
+document.addEventListener("load", bubbleChart);
 
 function bubbleChart() {
   let height = 1000;
