@@ -8,7 +8,6 @@
     {{ script('https://d3js.org/d3.v3.min.js') }}
     {{--  {{ script('bars') }}  --}}
     {{--  {{ script('bubbles') }}  --}}
-    <script src="bubble.js"></script>
     {{ style('style') }}
 </head>
 
@@ -19,7 +18,7 @@
     <label for="charts">Choose a chart type:</label>
 
     <select name="charts" id="charts" onchange="GetSelectedValue()">
-    <option value="bar">Bar</option>
+    <option value="bars">Bar</option>
     <option value="bubbles">Bubbles</option>
     </select>
 
@@ -28,8 +27,7 @@
             let e = document.getElementById("charts");
             let result = e.options[e.selectedIndex].value;
             
-            let script = document.createElement("script");
-            script.setAttribute("src", "/" + result + ".js");
+            let script = "{{ " + result + " }}";
             document.body.appendChild(script);
         }
     </script>
