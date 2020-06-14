@@ -22,15 +22,16 @@
     <option value="bubbles">Bubbles</option>
     </select>
 
-    <div id = "wrapper"></div>
+    <script id="wrapper"></script>
 
     <script>
         function GetSelectedValue() {
-            var e = document.getElementById("charts");
-            var result = e.options[e.selectedIndex].value;
-
-            var script = "{{ script(" + result + ") }}";
-            document.getElementById("wrapper").innerHTML = script;
+            let e = document.getElementById("charts");
+            let result = e.options[e.selectedIndex].value;
+            
+            let script = document.createElement("script");
+            script.setAttribute("src", "../public/" + result + ".js");
+            document.body.appendChild(script);
         }
     </script>
 
