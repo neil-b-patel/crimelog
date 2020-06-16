@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", bubbleChart);
 
 function bubbleChart() {
-  let height = 1000;
-  let width = height;
+  let height = 800;
+  let width = 1200;
 
   let svg = d3
     .select("body")
@@ -14,13 +14,13 @@ function bubbleChart() {
 
   let radiusScale = d3
     .scaleSqrt()
-    .domain([1, 20])
-    .range([40, 175]);
+    .domain([0, 1])
+    .range([50, 150]);
 
   let textScale = d3
     .scaleSqrt()
-    .domain([1, 20])
-    .range([12, 30]);
+    .domain([0, 1])
+    .range([15, 30]);
 
   let simulation = d3
     .forceSimulation()
@@ -49,11 +49,12 @@ function bubbleChart() {
         return radiusScale(d.count);
       })
       .attr("fill", function color(d) {
-        let colors = d3.schemePastel1;
-        //let randomColor = colors[Math.floor(Math.random() * colors.length)];
-        //let randomColorIndex = colors.indexOf(randomColor);
-        //colors.splice(randomColorIndex, 1);
-        return colors[0];
+        let colors = d3.schemeSet2;
+        let randomColor = colors[Math.floor(Math.random() * colors.length)];
+        // let randomColorIndex = colors.indexOf(randomColor);
+        // return colors.splice(randomColorIndex, 1);
+        // return colors[0];
+        return randomColor;
       });
 
     let crimeText = svg
@@ -61,10 +62,10 @@ function bubbleChart() {
       .data(data)
       .enter()
       .append("text")
-      .attr("dy", ".8em")
+      .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .attr("font-weight", "700")
-      .attr("font-family", "Volkhorn")
+      .attr("font-weight", "600")
+      .attr("font-family", "Libre Baskerville")
       .attr("font-size", function(d) {
         return textScale(d.count);
       })
@@ -77,10 +78,10 @@ function bubbleChart() {
       .data(data)
       .enter()
       .append("text")
-      .attr("dy", "-0.45em")
+      .attr("dy", "-0.60em")
       .style("text-anchor", "middle")
-      .attr("font-weight", "700")
-      .attr("font-family", "Volkhorn")
+      .attr("font-weight", "600")
+      .attr("font-family", "Libre Baskerville")
       .attr("font-size", function(d) {
         return textScale(d.count);
       })

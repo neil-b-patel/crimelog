@@ -3,13 +3,22 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Last 60 Crimes: Bar Chart</title>
-    {{ script('https://d3js.org/d3.v3.min.js') }}
-    {{ script('bars') }}
+    <title>The Crimelogs: Radial Ed.</title>
+    {{ script('https://d3js.org/d3.v4.min.js') }}
+    {{--  {{ script('https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3-scale-radial.js') }}  --}}
+    {{ script('radial') }}
     {{ style('style') }}
 </head>
 
 <body>
+    <div class="navbar">
+        <button class="subtitle" onclick="window.location.href='/'">The Crimelog</button>
+        <button class="text" onclick="window.location.href='/bars'">Bars</button>
+        <button class="text" onclick="window.location.href='/bubbles'">Bubbles</button>
+        <button id ="end-button" class="text" onclick="window.location.href='/heat'">Heat Map</button>
+    </div>
+
+    <div id = "graph"></div>
 </body>
 
 </html>

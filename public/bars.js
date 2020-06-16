@@ -1,23 +1,23 @@
 document.addEventListener("DOMContentLoaded", barChart);
 
 function barChart() {
-  let margin = { top: 40, right: 20, bottom: 160, left: 40 },
-    width = 900 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+  let margin = { top: 40, right: 40, bottom: 160, left: 160},
+    width = 600 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
   let x = d3.scale.ordinal().rangeRoundBands([0, width], 0.20);
   let y = d3.scale.linear().range([height, 0]);
 
   let xAxis = d3.svg
     .axis()
-    .scale(x)
-    .orient("bottom");
+    .scale(y)
+    .orient("bottom")
+    .ticks(5);
 
   let yAxis = d3.svg
     .axis()
-    .scale(y)
+    .scale(x)
     .orient("left")
-    .ticks(10);
 
   let svg = d3
     .select("body")
@@ -47,31 +47,36 @@ function barChart() {
         return d.count;
       })
     ]);
-
     svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + height + ")")
       .call(xAxis)
       .selectAll("text")
       .style("text-anchor", "end")
-      .attr("dx", "-.6em")
-      .attr("dy", "-.55em")
-      .attr("transform", "rotate(-90)");
+      .style("font-size", "16px")
+      .style("font-family", "Libre Baskerville")
+      .style("font-weight", 600)
+      .attr("dx", "-1em")
+      .attr("dy", "0.55em")
+      .attr("transform", "rotate(-45)");
 
     svg.append("g")
       .attr("class", "y axis")
       .call(yAxis)
       .append("text")
       .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
+      .attr("y", 10)
+      .attr("dy", ".85em")
       .style("text-anchor", "end")
-      .text("Value ($)");
+      .text("Frequency");
 
     svg.selectAll("bar")
       .data(data)
       .enter().append("rect")
-      .style("fill", "steelblue")
+      .style("fill", "2b87ac")
+      .style("stroke", "2aaa8f")
+      .style("stroke-width", 3.14)
+      .style("stroke-linecap", "square")
       .attr("x", function(d) {
         return x(d.crime);
       })

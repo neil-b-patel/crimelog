@@ -17,4 +17,5 @@
 const Route = use("Route");
 
 Route.get("/", "CrimelogController.index");
+Route.get("/bars", "CrimelogController.bars");
 Route.get("/bubbles", "CrimelogController.bubbles");

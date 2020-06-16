@@ -4,33 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Last 60 Crimes: Bar Chart</title>
+    <title>Davidson College Crimes</title>
     {{ script('https://d3js.org/d3.v3.min.js') }}
     {{--  {{ script('bars') }}  --}}
     {{--  {{ script('bubbles') }}  --}}
     {{ style('style') }}
+
 </head>
 
 <body>
-    <h2>Select a chart type using the dropdown list.</h2>
-    <h3>This will visualize the type and frequency of the last sixty crimes on Davidson College's campus.</h3>
-
-    <label for="charts">Choose a chart type:</label>
-
-    <select name="charts" id="charts" onchange="GetSelectedValue()">
-    <option value="bars">Bar</option>
-    <option value="bubbles">Bubbles</option>
-    </select>
-
-    <script>
-        function GetSelectedValue() {
-            let e = document.getElementById("charts");
-            let result = e.options[e.selectedIndex].value;
-            
-            let script = "{{ " + result + " }}";
-            document.body.appendChild(script);
-        }
-    </script>
+    <div class="navbar">
+        <button class="subtitle" onclick="window.location.href='/'">The Crimelog</button>
+        <button class="text" onclick="window.location.href='/bars'">Bars</button>
+        <button class="text" onclick="window.location.href='/bubbles'">Bubbles</button>
+        <button id="end-button" class="text" onclick="window.location.href='/heat'">Heat Map</button>    
+    </div>
 
 </body>
 

@@ -1,0 +1,20 @@
+{{--  
+    <label for="charts">Choose a chart type:</label>
+
+    <select name="charts" id="charts" onchange="GetSelectedValue()">
+    <option value="bars">Bar</option>
+    <option value="bubbles">Bubbles</option>
+    </select> 
+--}}
+
+{{--  
+    <script>
+        function GetSelectedValue() {
+            let e = document.getElementById("charts");
+            let result = e.options[e.selectedIndex].value;
+            
+            let script = "{{ " + result + " }}";
+            document.body.appendChild(script);
+        }
+    </script>  
+--}}
