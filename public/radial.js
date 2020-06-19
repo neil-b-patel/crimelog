@@ -29,7 +29,7 @@ function scaleRadial() {
   }
 
 function radialChart() {
-  let margin = { top: 10, right: 10, bottom: 10, left: 10},
+  let margin = { top: 100, right: 10, bottom: 10, left: 10},
     width = 1105 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom,
     innerRadius = 150,
@@ -43,7 +43,7 @@ function radialChart() {
     .append("g")
     .attr('transform', 'translate(' + width / 2 +  ',' + height / 2 +')');
 
-  d3.json("test.json", function (error, data) {
+  d3.json("crime.json", function (error, data) {
     data = data.crimes;
 
     let x = d3.scaleBand()
