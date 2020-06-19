@@ -29,10 +29,10 @@ function scaleRadial() {
   }
 
 function radialChart() {
-  let margin = { top: 400, right: 10, bottom: 10, left: 300},
-    width = 660 - margin.left - margin.right,
-    height = 660 - margin.top - margin.bottom,
-    innerRadius = 200,
+  let margin = { top: 10, right: 10, bottom: 10, left: 10},
+    width = 1105 - margin.left - margin.right,
+    height = 800 - margin.top - margin.bottom,
+    innerRadius = 150,
     outerRadius = Math.min(width, height) / 2;
 
   let svg = d3
@@ -41,20 +41,19 @@ function radialChart() {
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr('transform', 'translate(' + width / 2 +  ',' + height / 2 +')');
 
-
-  d3.json("crime.json", function (error, data) {
+  d3.json("test.json", function (error, data) {
     data = data.crimes;
 
     let x = d3.scaleBand()
-        .domain( data.map( function (d) {return d.crime;} ) )
         .range( [0, 2 * Math.PI] )
-        .align( 0 );
+        .align(0)
+        .domain( data.map( function (d) {return d.crime;} ) );
 
-    let y = d3.scaleBand()
-        .domain( [0, 10000] )
-        .range( [innerRadius, outerRadius] );
+    let y = d3.scaleLinear()
+        .range( [innerRadius, outerRadius] )
+        .domain( [0, 20] );
 
     svg
       .append("g")
@@ -63,8 +62,9 @@ function radialChart() {
       .enter()
 
       .append("path")
-      .attr("fill", "#87c6df")
-      .attr("stroke","#76d8ff")
+      .attr("fill", "#393a8c")
+      .attr("stroke","#8ba1f0")
+      .attr("stroke-width", "0.1em")
       .attr("d", d3
         .arc()
         .innerRadius(innerRadius)
@@ -87,7 +87,7 @@ function radialChart() {
       .enter()
       .append("g")
         .attr("text-anchor", function(d) { return (x(d.crime) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "end" : "start"; })
-        .attr("transform", function(d) { return "rotate(" + ((x(d.crime) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")"+"translate(" + (y(d.count)+15) + ",0)"; })
+        .attr("transform", function(d) { return "rotate(" + ((x(d.crime) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")"+"translate(" + (innerRadius + 8) + ",0)"; })
       .append("text")
         .text(function(d){return(d.crime)})
         .attr("transform", function(d) { return (x(d.crime) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "rotate(180)" : "rotate(0)"; })
